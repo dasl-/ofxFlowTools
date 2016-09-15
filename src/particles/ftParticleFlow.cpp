@@ -37,8 +37,8 @@ namespace flowTools {
 	ftParticleFlow::ftParticleFlow(){
 		parameters.setName("particle flow");
 		parameters.add(bIsActive.set("active", true));
-		parameters.add(speed.set("speed", 20, 0, 100));
-		parameters.add(cellSize.set("cell size", 1.25, 0.0, 2.0));
+		parameters.add(speed.set("speed2", 20, 0, 100));
+		parameters.add(cellSize.set("cell size2", 1.25, 0.0, 2.0));
 		parameters.add(birthChance.set("birth chance", 0.5, 0, 1));
 		parameters.add(birthVelocityChance.set("birth velocity chance", 0.5, 0, 1));
 		parameters.add(lifeSpan.set("lifespan", 5, 0, 10));

@@ -14,7 +14,7 @@ namespace flowTools {
         ~ftDrawMouseForces();
 	
 		void				setup(int _simulationWidth, int _simulationHeight, int _densityWidth = 0, int _densityHeight = 0) ;
-		void				update(float _deltaTime);
+		void				update(float _deltaTime, float _leftScaledVol, float _rightScaledVol);
 		void				reset()  { for (int i=0; i<numDrawForces; i++) drawForces[i].reset(); }
 		
 		int					getNumForces() { return numDrawForces; }
@@ -33,6 +33,7 @@ namespace flowTools {
 		void				resetDrawForcesListner(bool& _value) { if (_value) { reset(); }; doResetDrawForces.set(false); }
 		
 		int					numDrawForces;
+//        vector              <ftDrawForce*> drawForces;
 		ftDrawForce*		drawForces;
 		
 		float				deltaTime;
@@ -46,6 +47,12 @@ namespace flowTools {
 		void				mouseDragged(ofMouseEventArgs & mouse);
 		
 		ofVec2f				lastNormalizedMouse;
+        
+        void updateSound(float leftScaledVol, float rightScaledVol);
+        void setupSound();
+        int updateCounter;
+        int numPoints = 8;
+        float pointPositions[8][2];
 		
 	};
 }
