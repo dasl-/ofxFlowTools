@@ -7,6 +7,7 @@
 //
 
 #include "ftDrawMouseForces.h"
+#include "ofApp.h"
 
 
 namespace flowTools {
@@ -169,12 +170,13 @@ namespace flowTools {
         And vice versa. Kinda confusing.
      */
     void ftDrawMouseForces::updateSound(float leftChannelScaledVol, float rightChannelScaledVol) {
+        int scaleFactor = 10;
         ofVec2f leftChannelVelocity = ofVec2f(leftChannelScaledVol * 10, 0);
         ofVec2f rightChannelVelocity = ofVec2f(rightChannelScaledVol * 10, 0);
-        if (leftChannelVelocity.x < 1) {
+        if (leftChannelVelocity.x < volumeThreshold * scaleFactor) {
             leftChannelVelocity.x = 0; // cool effect where the smoke persists even during quiet parts.
         }
-        if (rightChannelVelocity.x < 1) {
+        if (rightChannelVelocity.x < volumeThreshold * scaleFactor) {
             rightChannelVelocity.x = 0;
         }
         
